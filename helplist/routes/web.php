@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TaskController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->prefix('tasks')->as('tasks.')->group(function () {
+    Route::get('create', 'TaskController@create')->name('create');
+    Route::post('store', 'TaskController@store')->name('store');
+    Route::post('{task}/delete', 'TaskController@delete')->name('delete');
+});
+
+Route::get('/tasks/{id}', 'TaskController@show')->name('tasks.show');
+
