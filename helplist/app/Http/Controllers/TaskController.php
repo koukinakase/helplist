@@ -11,15 +11,18 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::with(['user'])->get();
+        $now = \Carbon\Carbon::now();
 
-        return view('index', ['tasks' => $tasks]);
+        return view('index', ['tasks' => $tasks, 'now' => $now]);
     }
 
     public function show($id)
     {
         $task = Task::find($id);
+        $helped = $task->helpedusers->contains(Auth::id());
+        $helpuser = $task->helpedusers->count();
 
-        return view('tasks.show', ['task' => $task]);
+        return view('tasks.show', ['task' => $task, 'helped' => $helped, 'helpuser' => $helpuser]);
     }
 
     public function create()
@@ -34,7 +37,7 @@ class TaskController extends Controller
         $task->user()->associate(Auth::user()); 
         $task->save();
 
-        return redirect()->to('/');
+        return redirect()->to('tasks/index');
     }
 
     public function delete(Task $task)
@@ -45,7 +48,8 @@ class TaskController extends Controller
 
         $task->delete();
 
-        return redirect()->to('/');
+        return redirect()->to('tasks/index');
     }
 
+    
 }
