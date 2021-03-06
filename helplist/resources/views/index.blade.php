@@ -3,7 +3,6 @@
 @section('content')
   <div class="container"> 
         @foreach($tasks as $task)
-        @if($task->deadline > $now)
             <div class="card">
               <div class="card-header">
                 <div class="row justify-content-between">
@@ -17,22 +16,19 @@
                   <div class="col-2">
                     <a href="/tasks/{{ $task->id }}">詳細</a>
                   </div>
-                  <div class="col-2">募集人数:{{ $task->number }}人</div>
-                  <div class="col-2">
+                  <div class="col-2 text-right">募集:{{ $task->number }}人</div>
 
                   @if(Auth::id() === $task->user_id)
+                  <div class="col-2">
                     <form method="POST" action="{{ route('tasks.delete', $task->id) }}">
                       @csrf
                       <button type="submit" class="btn btn-danger">削除</button>
                     </form>
-                  @endif
                   </div>
+                  @endif
                 </div>  
               </div>  
-            </div> 
-        @else
-        {{ route('tasks.delete', $task->id) }}
-        @endif         
+            </div>          
         @endforeach
   </div>
 @endsection

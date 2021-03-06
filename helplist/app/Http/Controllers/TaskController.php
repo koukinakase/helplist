@@ -13,6 +13,13 @@ class TaskController extends Controller
         $tasks = Task::with(['user'])->get();
         $now = \Carbon\Carbon::now();
 
+        foreach($tasks as $task){
+            if($task->deadline < $now){
+                $task->delete();
+            }
+        }
+
+
         return view('index', ['tasks' => $tasks, 'now' => $now]);
     }
 

@@ -12,7 +12,7 @@
               </div>
               <div class="card-body">
                 <div class="text-left h4">詳細内容：</div>
-                <textarea name="body" style="width:100%; height:250px;">{{ $task->body }}</textarea>
+                <div class="border border-dark">{{ $task->body }}</div>
                 <br>
                 <br>
                 <br>
