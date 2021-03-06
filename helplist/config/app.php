@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Helplist'),
 
     /*
     |--------------------------------------------------------------------------
@@ -175,6 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Add Intervention Image.
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -225,6 +227,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Hash' => Illuminate\Support\Facades\Hash::class,
+        // Add Intervention Image.
+        'InterventionImage' => Intervention\Image\Facades\Image::class,
 
     ],
 

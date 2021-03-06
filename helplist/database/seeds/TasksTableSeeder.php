@@ -15,21 +15,21 @@ class TasksTableSeeder extends Seeder
         $dataSet = [
             [
                 'user_id' => 1,
-                'deadline' => '2021-02-12',
+                'deadline' => '2021-03-25',
                 'number' => 2,
                 'title' => 'test1',
                 'body' => '初依頼',
             ],
             [
                 'user_id' => 1,
-                'deadline' => '2021-02-13',
+                'deadline' => '2021-03-26',
                 'number' => 3,
                 'title' => 'test2',
                 'body' => '自動データ',
             ],
             [
                 'user_id' => 2,
-                'deadline' => '2021-02-14',
+                'deadline' => '2021-03-27',
                 'number' => 1,
                 'title' => 'test3',
                 'body' => 'ID: 2 のユーザーの投稿です',

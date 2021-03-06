@@ -7,7 +7,7 @@
               <div class="card-header">
                 <div class="row justify-content-between">
                   <div class="col-2">依頼者:{{ $task->user->name }}</div>
-                  <div class="col-3 text-right">期限：{{ $task->deadline }}</div>
+                  <div class="col-4　text-left">期限：{{ $task->deadline }}</div>
                 </div>  
               </div>
               <div class="card-body">
@@ -16,19 +16,19 @@
                   <div class="col-2">
                     <a href="/tasks/{{ $task->id }}">詳細</a>
                   </div>
-                  <div class="col-2 text-right">募集:{{ $task->number }}人</div>
+                  <div class="col-2">人数:{{ $task->number }}人</div>
+                  <div class="col-2">
 
                   @if(Auth::id() === $task->user_id)
-                  <div class="col-2">
                     <form method="POST" action="{{ route('tasks.delete', $task->id) }}">
                       @csrf
                       <button type="submit" class="btn btn-danger">削除</button>
                     </form>
-                  </div>
                   @endif
+                  </div>
                 </div>  
               </div>  
-            </div>          
+            </div>         
         @endforeach
   </div>
 @endsection
