@@ -14,3 +14,10 @@
 - Heroku
 
 # Usage
+- http://laravel-helplist.herokuapp.com/login　にアクセス
+　　- Mail: 'dd@gmail.com'
+　　- Password: '1q2w3e4r'
+- 依頼を作成するボタンで依頼作成画面へ -
+- helplistのロゴをクリックすると一覧画面へ移動 -
+- 応募ボタンで応募 -
+  - 応募一覧で応募した依頼を見ることができる -
